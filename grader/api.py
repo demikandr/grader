@@ -16,7 +16,7 @@ def load_model(path):
     model = Model(path)
 
 class Predict(Resource):
-    
+
     def __init__(self):
         self.student = Student(**request.args)
 
@@ -27,7 +27,7 @@ class Predict(Resource):
 api.add_resource(Predict, '/predict/')
 
 def run():
-    app.run(port='5002')
+    app.run(port=5002)
 
 if __name__ == '__main__':
     run()
