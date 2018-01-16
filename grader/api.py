@@ -11,6 +11,10 @@ api = Api(app)
 
 model = Model()
 
+def load_model(path):
+    global model
+    model = Model(path)
+
 class Predict(Resource):
     
     def __init__(self):
@@ -22,5 +26,8 @@ class Predict(Resource):
 
 api.add_resource(Predict, '/predict/')
 
-if __name__ == '__main__':
+def run():
     app.run(port='5002')
+
+if __name__ == '__main__':
+    run()

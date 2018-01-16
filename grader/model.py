@@ -1,13 +1,18 @@
 import numpy as np
 from collections import defaultdict
 
+import pkg_resources
+import os
+
+DATA_PATH = pkg_resources.resource_filename('grader', 'data/')
+MODEL_PATH = os.path.join(DATA_PATH, 'baseline_weights.npy')
 
 feature_list = ['goout', 'school', 'schoolsup', 'failures', 'higher', 'subject', 'intercept']
     
 class Model(object):
 
-    def __init__(self, model_path='baseline_weights.npy'):
-        self.load_weights(model_path)
+    def __init__(self, ):
+        self.load_weights(MODEL_PATH)
 
     def load_weights(self, path):
         with open(path, 'rb') as f:
